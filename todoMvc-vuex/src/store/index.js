@@ -12,7 +12,9 @@ const state = {
 }
 
 const getters = {
-
+  unComplete (state) {
+    return state.todoList.filter(item => !item.complete).length
+  }
 }
 
 const mutations ={
