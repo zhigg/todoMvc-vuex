@@ -26,6 +26,10 @@ const mutations ={
   deleteList (state,payload) {
     let index = state.todoList.findIndex(item => item.id == payload.id)
     state.todoList.splice(index,1)
+  },
+  changeState (state,payload) {
+    let index = state.todoList.findIndex(item => item.id == payload.id)
+    state.todoList[index].complete = !state.todoList[index].complete
   }
 }
 const actions = {

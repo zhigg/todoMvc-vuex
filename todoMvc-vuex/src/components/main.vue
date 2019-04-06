@@ -3,9 +3,9 @@
       <input id="toggle-all" class="toggle-all" type="checkbox">
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
-        <li :class="{completed:item.complete}" v-for="(item,index) in todoList">
+        <li :class="{completed:item.complete}" v-for="item in todoList" :key="item.id">
           <div class="view">
-            <input class="toggle" type="checkbox" :checked='item.complete'>
+            <input class="toggle" type="checkbox" :checked='item.complete' @change="changeState({id:item.id})">
             <label>{{item.text}}</label>
             <button class="destroy" @click="deleteList({id:item.id})"></button>
           </div>
@@ -19,7 +19,7 @@
 import { mapState, mapMutations } from 'vuex'
 export default {
   computed: mapState(['todoList']),
-  methods: mapMutations(['deleteList'])
+  methods: mapMutations(['deleteList','changeState'])
 }
 </script>
 
