@@ -7,7 +7,7 @@
           <div class="view">
             <input class="toggle" type="checkbox" :checked='item.complete'>
             <label>{{item.text}}</label>
-            <button class="destroy"></button>
+            <button class="destroy" @click="deleteList({id:item.id})"></button>
           </div>
           <input class="edit" value="Create a TodoMVC template">
         </li>
@@ -16,9 +16,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
-  computed: mapState(['todoList'])
+  computed: mapState(['todoList']),
+  methods: mapMutations(['deleteList'])
 }
 </script>
 

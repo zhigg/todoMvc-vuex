@@ -22,6 +22,10 @@ const mutations ={
       text: payload.text,
       complete: false
     })
+  },
+  deleteList (state,payload) {
+    let index = state.todoList.findIndex(item => item.id == payload.id)
+    state.todoList.splice(index,1)
   }
 }
 const actions = {
