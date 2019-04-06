@@ -12,14 +12,15 @@
           <a href="#/completed">Completed</a>
         </li>
       </ul>
-      <button class="clear-completed">Clear completed</button>
+      <button class="clear-completed" @click="clearCompletedAsync">Clear completed</button>
     </footer>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  computed:mapGetters(['unComplete'])
+  computed: mapGetters(['unComplete']),
+  methods: mapActions(['clearCompletedAsync'])
 }
 </script>
 
